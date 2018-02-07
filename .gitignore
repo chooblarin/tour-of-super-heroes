@@ -41,3 +41,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+## angular environment stuffs are supposed to be created from its template
+src/environments/*
+!src/environments/*.template
