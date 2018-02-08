@@ -1,6 +1,7 @@
 <section class="hero-list">
   <div *ngFor="let hero of heroes">
     <a href="#">
+      <img [src]="imageUrl(hero)" alt="">
       <h4>{{hero.name}}</h4>
     </a>
   </div>

@@ -19,4 +19,8 @@ export class HeroesComponent implements OnInit {
       .subscribe(heroes => this.heroes = heroes);
   }
 
+  imageUrl(hero: Hero): string {
+    const { path, extension } = hero.thumbnail;
+    return `${path}/standard_fantastic.${extension}`;
+  }
 }
