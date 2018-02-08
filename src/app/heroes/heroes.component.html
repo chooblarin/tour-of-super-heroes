@@ -1,5 +1,5 @@
 <section class="hero-list">
-  <div *ngFor="let hero of heroes">
+  <div *ngFor="let hero of heroes" class="hero-item">
     <a href="#">
       <img [src]="imageUrl(hero)" alt="">
       <h4>{{hero.name}}</h4>
