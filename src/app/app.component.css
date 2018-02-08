@@ -7,3 +7,35 @@
   padding-top: 40px;
   padding-bottom: 56px;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-list a {
+  display: block;
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 12px 24px;
+  border: 1px solid #62f1d2;
+  margin-bottom: 40px;
+}
+
+.nav-list a:hover {
+  background-color: #62f1d2;
+  color: #042a3b;
+}
+
+.tab-content {
+  flex: 1 0 auto;
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0.5em 0.5em 1.0em 0.5em;
+}
