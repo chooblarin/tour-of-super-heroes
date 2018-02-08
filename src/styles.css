@@ -1,1 +1,23 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'serif', sans-serif;
+  height: 100vh;
+  color: #62f1d2;
+  background: linear-gradient(#061C27, #04413F);
+}
+
+a {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  color: inherit;
+}
