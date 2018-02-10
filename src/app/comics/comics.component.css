@@ -1,0 +1,24 @@
+.comic-item a {
+  display: flex;
+  padding: 16px;
+}
+
+.comic-item img {
+  width: 140px;
+  max-width: 140px;
+}
+
+.comic-content {
+  padding-left: 20px;
+}
+
+.comic-content h4 {
+  font-size: 1.2em;
+  margin-bottom: 16px;
+}
+
+.comic-content p {
+  font-size: 0.8rem;
+  color: white;
+  line-height: 1.6;
+}

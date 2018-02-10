@@ -10,7 +10,7 @@ import { Comic } from '../comic';
 })
 export class ComicsComponent implements OnInit {
 
-  comics: Comic[] = []
+  comics: Comic[] = [];
 
   constructor(private heroService: HeroService) { }
 
