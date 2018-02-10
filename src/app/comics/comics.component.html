@@ -1,3 +1,16 @@
-<p>
-  comics works!
-</p>
+<section class="comic-list">
+  <div *ngFor="let comic of comics" class="comic-item">
+    <a href="#">
+
+      <div>
+        <img [src]="imageUrl(comic)" alt="">
+      </div>
+
+      <div class="comic-content">
+        <h4>{{comic.title}}</h4>
+        <p>{{comic.description}}</p>
+      </div>
+
+    </a>
+  </div>
+</section>

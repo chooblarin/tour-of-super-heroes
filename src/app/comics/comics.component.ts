@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { HeroService } from '../hero.service';
+import { Comic } from '../comic';
+
 @Component({
   selector: 'app-comics',
   templateUrl: './comics.component.html',
@@ -7,9 +10,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ComicsComponent implements OnInit {
 
-  constructor() { }
+  comics: Comic[] = []
+
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.getComics();
   }
 
+  getComics() {
+    this.heroService.getComics()
+      .subscribe(comics => this.comics = comics);
+  }
+
+  imageUrl(comic: Comic): string {
+    const { path, extension } = comic.thumbnail;
+    return `${path}/portrait_uncanny.${extension}`;
+  }
 }

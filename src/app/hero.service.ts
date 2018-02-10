@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
 import { Hero } from './hero';
+import { Comic } from './comic';
 
 interface Data<T> {
   results: T[]
@@ -17,7 +18,7 @@ interface Response<T> {
 @Injectable()
 export class HeroService {
 
-  private marvelApiUrl = 'https://gateway.marvel.com:443';
+  private marvelApiUrl = 'https://gateway.marvel.com';
   private apiKey = environment.apiKey;
 
   constructor(private http: HttpClient) { }
@@ -33,7 +34,22 @@ export class HeroService {
     return this.http
       .get<Response<Hero>>(`${this.marvelApiUrl}${path}`, { headers, params })
       .pipe(
-      map(response => response.data.results)
-      )
+        map(response => response.data.results)
+      );
+  }
+
+  getComics(): Observable<Comic[]> {
+    const path = '/v1/public/comics';
+    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const params = new HttpParams()
+      .set('limit', '10')
+      .set('orderBy', '-issueNumber')
+      .set('apikey', this.apiKey);
+    return this.http
+      .get<Response<Comic>>(`${this.marvelApiUrl}${path}`, { headers, params })
+      .pipe(
+        map(response => response.data.results)
+      );
   }
 }
