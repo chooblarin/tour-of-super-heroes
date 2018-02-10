@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 import { environment } from '../environments/environment';
 import { Hero } from './hero';
 import { Comic } from './comic';
+import { MarvelEvent } from './event';
 
 interface Data<T> {
   results: T[]
@@ -48,6 +49,21 @@ export class HeroService {
       .set('apikey', this.apiKey);
     return this.http
       .get<Response<Comic>>(`${this.marvelApiUrl}${path}`, { headers, params })
+      .pipe(
+        map(response => response.data.results)
+      );
+  }
+
+  getEvents(): Observable<MarvelEvent[]> {
+    const path = '/v1/public/events';
+    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const params = new HttpParams()
+      .set('limit', '10')
+      .set('orderBy', '-startDate')
+      .set('apikey', this.apiKey);
+    return this.http
+      .get<Response<MarvelEvent>>(`${this.marvelApiUrl}${path}`, { headers, params })
       .pipe(
         map(response => response.data.results)
       );

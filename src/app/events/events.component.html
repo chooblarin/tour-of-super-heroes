@@ -1,0 +1,9 @@
+<section class="event-list">
+  <div *ngFor="let event of events" class="event-item">
+    <a href="#">
+      <img [src]="imageUrl(event)" alt="">
+      <h4>{{event.title}}</h4>
+      <p>{{event.description}}</p>
+    </a>
+  </div>
+</section>
