@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { environment } from '../environments/environment'
 import { HeroesComponent } from './heroes/heroes.component';
 import { ComicsComponent } from './comics/comics.component';
 import { EventsComponent } from './events/events.component';
@@ -13,7 +14,10 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(
+      routes,
+      { enableTracing: !environment.production }
+    )
   ],
   exports: [
     RouterModule
