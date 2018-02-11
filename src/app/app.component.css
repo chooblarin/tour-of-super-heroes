@@ -28,6 +28,10 @@
 }
 
 .nav-list a:hover {
+  background-color: #62f1d244;
+}
+
+.nav-list a.active {
   background-color: #62f1d2;
   color: #042a3b;
 }
