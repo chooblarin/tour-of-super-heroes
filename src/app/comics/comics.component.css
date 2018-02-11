@@ -1,3 +1,7 @@
+.comic-item {
+  border-top: 1px solid #62f1d2;
+}
+
 .comic-item a {
   display: flex;
   padding: 16px;
