@@ -8,13 +8,15 @@ import { ComicsComponent } from './comics/comics.component';
 import { HeroService } from './hero.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { EventsComponent } from './events/events.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeroesComponent,
     ComicsComponent,
-    EventsComponent
+    EventsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
