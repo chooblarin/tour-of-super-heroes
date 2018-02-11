@@ -29,13 +29,25 @@ export class HeroService {
     const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams()
-      .set('limit', '10')
+      .set('limit', '50')
       .set('orderBy', '-modified')
       .set('apikey', this.apiKey);
     return this.http
       .get<Response<Hero>>(`${this.marvelApiUrl}${path}`, { headers, params })
       .pipe(
         map(response => response.data.results)
+      );
+  }
+
+  getHero(id: number): Observable<Hero> {
+    const path = `/v1/public/characters/${id}`;
+    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    const params = new HttpParams().set('apikey', this.apiKey);
+    return this.http
+      .get<Response<Hero>>(`${this.marvelApiUrl}${path}`, { headers, params })
+      .pipe(
+        map(response => response.data.results[0])
       );
   }
 
