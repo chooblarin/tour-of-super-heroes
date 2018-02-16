@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Comic } from '../comic';
+import { Comic } from './comic';
 import { MarvelService } from '../marvel.service';
 
 @Injectable()

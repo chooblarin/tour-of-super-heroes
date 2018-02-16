@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
 import { environment } from '../environments/environment';
-import { Hero } from './hero';
-import { Comic } from './comic';
-import { MarvelEvent } from './event';
+import { Hero } from './heroes/hero';
+import { Comic } from './comics/comic';
+import { MarvelEvent } from './events/event';
 
 interface Data<T> {
   results: T[]

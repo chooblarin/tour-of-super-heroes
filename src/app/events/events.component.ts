@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MarvelEvent } from '../event';
+import { MarvelEvent } from './event';
 import { EventService } from './event.service';
 
 @Component({
