@@ -28,9 +28,9 @@ export class MarvelService {
 
   getHeroes(): Observable<Hero[]> {
     const path = '/v1/public/characters';
-    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams()
-      .set('limit', '50')
+      .set('limit', '40')
       .set('orderBy', '-modified')
       .set('apikey', this.apiKey);
     return this.http
@@ -42,7 +42,7 @@ export class MarvelService {
 
   getHero(id: number): Observable<Hero> {
     const path = `/v1/public/characters/${id}`;
-    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams().set('apikey', this.apiKey);
     return this.http
       .get<Response<Hero>>(`${this.marvelApiUrl}${path}`, { headers, params })
@@ -53,7 +53,7 @@ export class MarvelService {
 
   getComics(): Observable<Comic[]> {
     const path = '/v1/public/comics';
-    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams()
       .set('limit', '10')
       .set('orderBy', '-issueNumber')
@@ -65,9 +65,20 @@ export class MarvelService {
       );
   }
 
+  getComic(id: number): Observable<Comic> {
+    const path = `/v1/public/comics/${id}`;
+    const url = `${this.marvelApiUrl}${path}`;
+    const params = new HttpParams().set('apikey', this.apiKey);
+    return this.http
+      .get<Response<Comic>>(`${this.marvelApiUrl}${path}`, { headers, params })
+      .pipe(
+        map(response => response.data.results[0])
+      );
+  }
+
   getEvents(): Observable<MarvelEvent[]> {
     const path = '/v1/public/events';
-    const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
+    const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams()
       .set('limit', '10')
       .set('orderBy', '-startDate')
@@ -76,6 +87,17 @@ export class MarvelService {
       .get<Response<MarvelEvent>>(`${this.marvelApiUrl}${path}`, { headers, params })
       .pipe(
         map(response => response.data.results)
+      );
+  }
+
+  getEvent(id: number): Observable<MarvelEvent> {
+    const path = `/v1/public/events/${id}`;
+    const url = `${this.marvelApiUrl}${path}`;
+    const params = new HttpParams().set('apikey', this.apiKey);
+    return this.http
+      .get<Response<MarvelEvent>>(`${this.marvelApiUrl}${path}`, { headers, params })
+      .pipe(
+        map(response => response.data.results[0])
       );
   }
 }
