@@ -1,11 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-import { map } from 'rxjs/operators';
 
 import { Hero } from '../hero';
 import { Comic } from '../comic';
-import { MarvelEvent } from '../event';
 import { MarvelService } from '../marvel.service';
 
 @Injectable()
@@ -18,14 +15,10 @@ export class HeroService {
   }
 
   getHero(id: number): Observable<Hero> {
-    return this.getHero(id);
+    return this.marvelService.getHero(id);
   }
 
   getComics(): Observable<Comic[]> {
-    return this.getComics();
-  }
-
-  getEvents(): Observable<MarvelEvent[]> {
-    return this.getEvents();
+    return this.marvelService.getComics();
   }
 }
