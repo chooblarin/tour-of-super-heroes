@@ -15,16 +15,7 @@ export class ComicsComponent implements OnInit {
   constructor(private comicService: ComicService) { }
 
   ngOnInit() {
-    this.getComics();
-  }
-
-  getComics() {
     this.comicService.getComics()
       .subscribe(comics => this.comics = comics);
-  }
-
-  imageUrl(comic: Comic): string {
-    const { path, extension } = comic.thumbnail;
-    return `${path}/portrait_uncanny.${extension}`;
   }
 }

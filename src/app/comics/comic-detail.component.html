@@ -1,3 +1,10 @@
-<div>
-  comic detail
+<div *ngIf="comic" class="comic">
+
+  <img [src]="comicService.imageUrl(comic)" alt="">
+
+  <h1 class="title">{{comic.title}}</h1>
+  <p class="">{{comic.description}}</p>
+
+  <p>{{comicService.printPrice(comic)}}</p>
+  <p>ISBN: {{comic.isbn}}</p>
 </div>

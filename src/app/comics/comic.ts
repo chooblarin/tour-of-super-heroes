@@ -3,6 +3,8 @@ export class Comic {
   title: string;
   description: string;
   thumbnail: any;
-  prices: any;
+  images: any[];
+  prices: any[];
+  isbn: string;
   urls: any[];
 }

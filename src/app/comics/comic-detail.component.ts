@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 
 import { Comic } from './comic';
 import { ComicService } from './comic.service';
@@ -11,7 +12,17 @@ export class ComicDetailComponent implements OnInit {
 
   comic: Comic;
 
-  constructor(comicService: ComicService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private comicService: ComicService
+  ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.comicService.getComic(id)
+      .subscribe(comic => {
+        console.log(comic);
+        this.comic = comic;
+      });
+  }
 }

@@ -3,7 +3,7 @@
     <a routerLink="/comics/{{comic.id}}">
 
       <div>
-        <img [src]="imageUrl(comic)" alt="">
+        <img [src]="comicService.thumbnailUrl(comic)" alt="">
       </div>
 
       <div class="comic-content">
