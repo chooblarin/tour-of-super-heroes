@@ -10,6 +10,7 @@ import { HeroDetailComponent } from './heroes/hero-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MarvelService } from './marvel.service';
 import { HeroService } from './heroes/hero.service';
+import { ComicService } from './comics/comic.service';
 import { EventService } from './events/event.service';
 import { AppRoutingModule } from './/app-routing.module';
 
@@ -30,6 +31,7 @@ import { AppRoutingModule } from './/app-routing.module';
   providers: [
     MarvelService,
     HeroService,
+    ComicService,
     EventService
   ],
   bootstrap: [AppComponent]

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { HeroService } from '../heroes/hero.service';
+import { ComicService } from './comic.service';
 import { Comic } from '../comic';
 
 @Component({
@@ -12,14 +12,14 @@ export class ComicsComponent implements OnInit {
 
   comics: Comic[] = [];
 
-  constructor(private heroService: HeroService) { }
+  constructor(private comicService: ComicService) { }
 
   ngOnInit() {
     this.getComics();
   }
 
   getComics() {
-    this.heroService.getComics()
+    this.comicService.getComics()
       .subscribe(comics => this.comics = comics);
   }
 

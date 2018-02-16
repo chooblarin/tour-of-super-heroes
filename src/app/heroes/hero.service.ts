@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import { Hero } from '../hero';
-import { Comic } from '../comic';
 import { MarvelService } from '../marvel.service';
 
 @Injectable()
@@ -16,9 +15,5 @@ export class HeroService {
 
   getHero(id: number): Observable<Hero> {
     return this.marvelService.getHero(id);
-  }
-
-  getComics(): Observable<Comic[]> {
-    return this.marvelService.getComics();
   }
 }
