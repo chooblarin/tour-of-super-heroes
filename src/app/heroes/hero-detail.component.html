@@ -1,7 +1,7 @@
 <div *ngIf="hero" class="bio">
 
   <div class="bio-image">
-    <img [src]="imageUrl(hero)">
+    <img [src]="heroService.imageUrl(hero)">
   </div>
 
   <div class="bio-content">
@@ -10,7 +10,7 @@
   </div>
 
   <div class="links">
-    <a [href]="detailLink(hero)" target="_blank" rel="noopener noreferrer">More detail</a>
-    <a [href]="wikiLink(hero)" target="_blank" rel="noopener noreferrer">Wiki</a>
+    <a [href]="heroService.detailLink(hero)" target="_blank" rel="noopener noreferrer">More detail</a>
+    <a [href]="heroService.wikiLink(hero)" target="_blank" rel="noopener noreferrer">Wiki</a>
   </div>
 </div>

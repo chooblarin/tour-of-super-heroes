@@ -22,19 +22,4 @@ export class HeroDetailComponent implements OnInit {
     this.heroService.getHero(heroId)
       .subscribe(hero => this.hero = hero);
   }
-
-  imageUrl(hero: Hero): string {
-    const { path, extension } = hero.thumbnail;
-    return `${path}/portrait_uncanny.${extension}`;
-  }
-
-  detailLink(hero: Hero): string {
-    const arr = hero.urls.filter(it => it.type == 'detail');
-    return arr.length ? arr[0].url : '';
-  }
-
-  wikiLink(hero: Hero): string {
-    const arr = hero.urls.filter(it => it.type == 'wiki');
-    return arr.length ? arr[0].url : '';
-  }
 }
