@@ -16,8 +16,10 @@ interface Response<T> {
   data: Data<T>
 }
 
+const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
 @Injectable()
-export class HeroService {
+export class MarvelService {
 
   private marvelApiUrl = 'https://gateway.marvel.com';
   private apiKey = environment.apiKey;
@@ -27,7 +29,6 @@ export class HeroService {
   getHeroes(): Observable<Hero[]> {
     const path = '/v1/public/characters';
     const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams()
       .set('limit', '50')
       .set('orderBy', '-modified')
@@ -42,7 +43,6 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     const path = `/v1/public/characters/${id}`;
     const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams().set('apikey', this.apiKey);
     return this.http
       .get<Response<Hero>>(`${this.marvelApiUrl}${path}`, { headers, params })
@@ -54,7 +54,6 @@ export class HeroService {
   getComics(): Observable<Comic[]> {
     const path = '/v1/public/comics';
     const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams()
       .set('limit', '10')
       .set('orderBy', '-issueNumber')
@@ -69,7 +68,6 @@ export class HeroService {
   getEvents(): Observable<MarvelEvent[]> {
     const path = '/v1/public/events';
     const url = `${this.marvelApiUrl}${path}?limit=10&apikey=${this.apiKey}`;
-    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const params = new HttpParams()
       .set('limit', '10')
       .set('orderBy', '-startDate')

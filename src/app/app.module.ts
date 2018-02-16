@@ -8,7 +8,8 @@ import { ComicsComponent } from './comics/comics.component';
 import { EventsComponent } from './events/events.component';
 import { HeroDetailComponent } from './heroes/hero-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { HeroService } from './hero.service';
+import { MarvelService } from './marvel.service';
+import { HeroService } from './heroes/hero.service';
 import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
@@ -25,7 +26,10 @@ import { AppRoutingModule } from './/app-routing.module';
     HttpClientModule,
     AppRoutingModule
   ],
-  providers: [HeroService],
+  providers: [
+    MarvelService,
+    HeroService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
