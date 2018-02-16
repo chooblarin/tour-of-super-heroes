@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
-import { Hero } from '../hero';
+import { Hero } from './hero';
 import { MarvelService } from '../marvel.service';
 
 @Injectable()
@@ -15,5 +15,10 @@ export class HeroService {
 
   getHero(id: number): Observable<Hero> {
     return this.marvelService.getHero(id);
+  }
+
+  thumbnailUrl(hero: Hero): string {
+    const { path, extension } = hero.thumbnail;
+    return `${path}/standard_fantastic.${extension}`;
   }
 }

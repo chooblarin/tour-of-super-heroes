@@ -1,14 +1,16 @@
 <section class="event-list">
   <div *ngFor="let event of events" class="event-item">
-    <a href="#">
-      <div class="thumbnail">
-        <img [src]="imageUrl(event)" alt="">
-      </div>
+    <a routerLink="/events/{{event.id}}">
 
       <div class="content">
         <h3>{{event.title}}</h3>
         <p>{{event.description}}</p>
       </div>
+
+      <div class="thumbnail">
+        <img [src]="eventService.thumbnailUrl(event)">
+      </div>
+
     </a>
   </div>
 </section>

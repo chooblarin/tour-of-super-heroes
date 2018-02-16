@@ -15,16 +15,7 @@ export class EventsComponent implements OnInit {
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
-    this.getEvents();
-  }
-
-  getEvents() {
     this.eventService.getEvents()
       .subscribe(events => this.events = events);
-  }
-
-  imageUrl(event: MarvelEvent): string {
-    const { path, extension } = event.thumbnail;
-    return `${path}/standard_fantastic.${extension}`;
   }
 }

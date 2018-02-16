@@ -8,6 +8,7 @@
 }
 
 .hero-item {
+  min-height: 240px;
   padding: 12px;
 }
 

@@ -1,12 +1,19 @@
 .event-item {
-  position: relative;
-  min-height: 292px;
-  padding: 24px;
   border-top: 1px solid #62f1d2;
+  min-height: 292px;
+}
+
+.event-item a {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px;
+}
+
+.event-item a:hover {
+  background-color: #62f1d214;
 }
 
 .thumbnail {
-  position: absolute;
   width: 60%;
   height: 100%;
   top: 24px;
