@@ -1,10 +1,15 @@
 .comic-item {
   border-top: 1px solid #62f1d2;
+  min-height: 240px;
 }
 
 .comic-item a {
   display: flex;
   padding: 16px;
+}
+
+.comic-item a:hover {
+  background-color: #62f1d214;
 }
 
 .comic-item img {
