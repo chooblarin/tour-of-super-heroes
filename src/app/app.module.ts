@@ -8,6 +8,7 @@ import { ComicsComponent } from './comics/comics.component';
 import { EventsComponent } from './events/events.component';
 import { HeroDetailComponent } from './heroes/hero-detail.component';
 import { ComicDetailComponent } from './comics/comic-detail.component';
+import { EventDetailComponent } from './events/event-detail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MarvelService } from './marvel.service';
 import { HeroService } from './heroes/hero.service';
@@ -23,6 +24,7 @@ import { AppRoutingModule } from './/app-routing.module';
     EventsComponent,
     HeroDetailComponent,
     ComicDetailComponent,
+    EventDetailComponent,
     NotFoundComponent
   ],
   imports: [

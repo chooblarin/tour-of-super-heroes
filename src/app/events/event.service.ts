@@ -13,6 +13,10 @@ export class EventService {
     return this.marvelService.getEvents();
   }
 
+  getEvent(id: number): Observable<MarvelEvent> {
+    return this.marvelService.getEvent(id);
+  }
+
   thumbnailUrl(event: MarvelEvent): string {
     const { path, extension } = event.thumbnail;
     return `${path}/standard_fantastic.${extension}`;
