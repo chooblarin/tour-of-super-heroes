@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import { map } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { MarvelService } from '../marvel.service';
@@ -10,11 +11,19 @@ export class HeroService {
   constructor(private marvelService: MarvelService) { }
 
   getHeroes(): Observable<Hero[]> {
-    return this.marvelService.getHeroes();
+    return this.marvelService
+      .getHeroes()
+      .pipe(
+        map(response => response.data.results)
+      );
   }
 
   getHero(id: number): Observable<Hero> {
-    return this.marvelService.getHero(id);
+    return this.marvelService
+      .getHero(id)
+      .pipe(
+        map(response => response.data.results[0])
+      );
   }
 
   thumbnailUrl(hero: Hero): string {
