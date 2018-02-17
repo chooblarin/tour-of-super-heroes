@@ -3,7 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
 import { MarvelEvent } from './event';
-import { MarvelService } from '../marvel.service';
+import { MarvelService } from '../marvel/marvel.service';
 
 @Injectable()
 export class EventService {

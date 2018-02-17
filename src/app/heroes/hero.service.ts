@@ -3,18 +3,19 @@ import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
 
 import { Hero } from './hero';
-import { MarvelService } from '../marvel.service';
+import { MarvelData } from '../marvel/response';
+import { MarvelService } from '../marvel/marvel.service';
 
 @Injectable()
 export class HeroService {
 
   constructor(private marvelService: MarvelService) { }
 
-  getHeroes(): Observable<Hero[]> {
+  getHeroes(limit: number = 20, offset: number = 0): Observable<MarvelData<Hero>> {
     return this.marvelService
-      .getHeroes()
+      .getHeroes(limit, offset)
       .pipe(
-        map(response => response.data.results)
+        map(response => response.data)
       );
   }
 
