@@ -1,7 +1,14 @@
 <div *ngIf="event" class="event">
 
-  <img [src]="eventService.thumbnailUrl(event)">
+  <div class="cover">
+    <img [src]="eventService.coverImageUrl(event)">
+  </div>
 
-  <h1 class="title">{{event.title}}</h1>
-  <p class="desc">{{event.description}}</p>
+  <div class="detail">
+    <div class="period">{{eventService.period(event)}}</div>
+
+    <h1 class="title">{{event.title}}</h1>
+    <p class="desc">{{event.description}}</p>
+  </div>
+
 </div>

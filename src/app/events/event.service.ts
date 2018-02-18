@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment';
 
 import { MarvelEvent } from './event';
 import { MarvelService } from '../marvel/marvel.service';
@@ -32,7 +33,19 @@ export class EventService {
     return `${path}/standard_fantastic.${extension}`;
   }
 
+  coverImageUrl(event: MarvelEvent): string {
+    const { path, extension } = event.thumbnail;
+    return `${path}.${extension}`;
+  }
+
   detailLink(event: MarvelEvent): string {
     return helper.detailLink(event);
+  }
+
+  period(event: MarvelEvent): string {
+    const { start, end } = event;
+    const s = moment(start).format('MMMM Do YYYY');
+    const e = moment(end).format('MMMM Do YYYY');
+    return `${s} - ${e}`
   }
 }

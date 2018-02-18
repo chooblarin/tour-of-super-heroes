@@ -1,0 +1,33 @@
+.event {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.cover {
+  height: auto;
+  width: 60%;
+  max-width: 540px;
+  min-height: 400px;
+}
+
+.cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.detail {
+  position: relative;
+  top: -20px;
+  padding: 40px 24px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.title {
+  margin: 12px 0;
+}
+
