@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 import { Hero } from './hero';
 import { HeroService } from './hero.service';
@@ -14,6 +14,8 @@ export class HeroesComponent implements OnInit {
 
   heroes: Hero[] = [];
   pageSize: number = 20;
+  currentPage: number;
+  totalPageCount: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -31,18 +33,19 @@ export class HeroesComponent implements OnInit {
           return this.heroService.getHeroes(this.pageSize, offset);
         })
       )
-      .subscribe(({ results }) => this.heroes = results);
+      .subscribe(({ results, total, offset }) => {
+        this.heroes = results;
+        this.currentPage = offset / this.pageSize + 1;
+        this.totalPageCount = Math.ceil(total / this.pageSize);
+      });
   }
 
   goToNextPage() {
-    const current = +(this.route.snapshot.queryParamMap.get('page') || '1');
-    this.goToPage(current + 1);
+    this.goToPage(this.currentPage + 1);
   }
 
   goToPrevPage() {
-    const current = +(this.route.snapshot.queryParamMap.get('page') || '1');
-    // TODO: check if current is larger than 1
-    this.goToPage(current - 1);
+    this.goToPage(this.currentPage - 1);
   }
 
   private goToPage(page: number | string) {

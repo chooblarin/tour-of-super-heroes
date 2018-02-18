@@ -1,7 +1,8 @@
 <section>
-  <div class="page-panel">
-    <a (click)="goToPrevPage()">prev</a>
-    <a (click)="goToNextPage()">next</a>
+  <div *ngIf="currentPage" class="page-panel">
+    <button (click)="goToPrevPage()" [disabled]="currentPage <= 1">&lt; Prev</button>
+    <span>{{currentPage}}/{{totalPageCount}}</span>
+    <button (click)="goToNextPage()">Next &gt;</button>
   </div>
   <div class="hero-list">
     <div *ngFor="let hero of heroes" class="hero-item">

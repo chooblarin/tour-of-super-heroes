@@ -3,8 +3,20 @@
   padding: 1em;
 }
 
-.page-panel a.disabled {
-  color: #ccc;
+.page-panel button {
+  font-size: 1em;
+  padding: 0 12px;
+  color: #52E7BF;
+}
+
+.page-panel button:hover {
+  text-decoration: underline;
+}
+
+.page-panel button:disabled {
+  color: #52E7BF55;
+  text-decoration: none;
+  cursor: none;
 }
 
 .hero-list {
