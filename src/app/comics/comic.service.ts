@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { Comic } from './comic';
 import { MarvelService } from '../marvel/marvel.service';
+import * as helper from '../marvel/helper';
 
 @Injectable()
 export class ComicService {
@@ -64,7 +65,6 @@ export class ComicService {
   }
 
   detailLink(comic: Comic): string {
-    const arr = comic.urls.filter(it => it.type == 'detail');
-    return arr.length ? arr[0].url : '';
+    return helper.detailLink(comic);
   }
 }

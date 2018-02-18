@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 
 import { MarvelEvent } from './event';
 import { MarvelService } from '../marvel/marvel.service';
+import * as helper from '../marvel/helper';
 
 @Injectable()
 export class EventService {
@@ -29,5 +30,9 @@ export class EventService {
   thumbnailUrl(event: MarvelEvent): string {
     const { path, extension } = event.thumbnail;
     return `${path}/standard_fantastic.${extension}`;
+  }
+
+  detailLink(event: MarvelEvent): string {
+    return helper.detailLink(event);
   }
 }

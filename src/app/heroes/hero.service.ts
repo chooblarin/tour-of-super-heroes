@@ -5,6 +5,7 @@ import { map } from 'rxjs/operators';
 import { Hero } from './hero';
 import { MarvelData } from '../marvel/response';
 import { MarvelService } from '../marvel/marvel.service';
+import * as helper from '../marvel/helper';
 
 @Injectable()
 export class HeroService {
@@ -38,12 +39,10 @@ export class HeroService {
   }
 
   detailLink(hero: Hero): string {
-    const arr = hero.urls.filter(it => it.type == 'detail');
-    return arr.length ? arr[0].url : '';
+    return helper.detailLink(hero);
   }
 
   wikiLink(hero: Hero): string {
-    const arr = hero.urls.filter(it => it.type == 'wiki');
-    return arr.length ? arr[0].url : '';
+    return helper.wikiLink(hero);
   }
 }

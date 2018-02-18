@@ -1,4 +1,6 @@
-export class MarvelEvent {
+import { MarvelModel } from '../marvel/model';
+
+export class MarvelEvent implements MarvelModel {
   id: number;
   title: string;
   description: string;

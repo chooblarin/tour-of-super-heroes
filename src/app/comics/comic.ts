@@ -1,4 +1,6 @@
-export class Comic {
+import { MarvelModel } from '../marvel/model';
+
+export class Comic implements MarvelModel {
   id: number;
   title: string;
   description: string;
