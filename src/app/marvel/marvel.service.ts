@@ -37,11 +37,12 @@ export class MarvelService {
       .get<MarvelResponse<Hero>>(url, { headers, params });
   }
 
-  getComics(): Observable<MarvelResponse<Comic>> {
+  getComics(limit: number, offset: number): Observable<MarvelResponse<Comic>> {
     const path = '/v1/public/comics';
     const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams()
-      .set('limit', '10')
+      .set('limit', `${limit}`)
+      .set('offset', `${offset}`)
       .set('orderBy', '-issueNumber')
       .set('apikey', this.apiKey);
     return this.http.get<MarvelResponse<Comic>>(url, { headers, params });
@@ -54,11 +55,12 @@ export class MarvelService {
     return this.http.get<MarvelResponse<Comic>>(url, { headers, params });
   }
 
-  getEvents(): Observable<MarvelResponse<MarvelEvent>> {
+  getEvents(limit: number, offset: number): Observable<MarvelResponse<MarvelEvent>> {
     const path = '/v1/public/events';
     const url = `${this.marvelApiUrl}${path}`;
     const params = new HttpParams()
-      .set('limit', '10')
+      .set('limit', `${limit}`)
+      .set('offset', `${offset}`)
       .set('orderBy', '-startDate')
       .set('apikey', this.apiKey);
     return this.http.get<MarvelResponse<MarvelEvent>>(url, { headers, params });

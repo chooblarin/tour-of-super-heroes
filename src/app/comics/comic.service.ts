@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import * as moment from 'moment';
 
 import { Comic } from './comic';
+import { MarvelData } from '../marvel/response';
 import { MarvelService } from '../marvel/marvel.service';
 import * as helper from '../marvel/helper';
 
@@ -12,11 +13,11 @@ export class ComicService {
 
   constructor(private marvelService: MarvelService) { }
 
-  getComics(): Observable<Comic[]> {
+  getComics(limit: number = 10, offset: number = 0): Observable<MarvelData<Comic>> {
     return this.marvelService
-      .getComics()
+      .getComics(limit, offset)
       .pipe(
-        map(response => response.data.results)
+        map(response => response.data)
       );
   }
 
