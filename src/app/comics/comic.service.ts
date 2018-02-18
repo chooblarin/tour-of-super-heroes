@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { map } from 'rxjs/operators';
+import * as moment from 'moment';
 
 import { Comic } from './comic';
 import { MarvelService } from '../marvel/marvel.service';
@@ -58,7 +59,7 @@ export class ComicService {
     const arr = comic.dates.filter(it => it.type == 'onsaleDate');
     if (0 < arr.length) {
       const dateString = arr[0].date;
-      return dateString;
+      return moment(dateString).format('MMMM Do YYYY');
     } else {
       return '--';
     }
