@@ -36,7 +36,12 @@
 .hero-item img {
   width: 100%;
   max-width: 100%;
+  min-height: 143px;
   border-radius: 50%;
+}
+
+.hero-item:hover img {
+  border: solid 1px darkcyan;
 }
 
 .hero-item h4 {
