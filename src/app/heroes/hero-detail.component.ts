@@ -18,8 +18,12 @@ export class HeroDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const heroId = +this.route.snapshot.paramMap.get('id');
-    this.heroService.getHero(heroId)
-      .subscribe(hero => this.hero = hero);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id != null) {
+      this.heroService.getHero(+id)
+        .subscribe(hero => this.hero = hero);
+    } else {
+      // TODO: navigate not found page
+    }
   }
 }

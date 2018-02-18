@@ -18,8 +18,12 @@ export class ComicDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.comicService.getComic(id)
-      .subscribe(comic => this.comic = comic);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id != null) {
+      this.comicService.getComic(+id)
+        .subscribe(comic => this.comic = comic);
+    } else {
+      // TODO: navigate not found page
+    }
   }
 }

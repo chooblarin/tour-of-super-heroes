@@ -18,8 +18,12 @@ export class EventDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.eventService.getEvent(id)
-      .subscribe(event => this.event = event);
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id != null) {
+      this.eventService.getEvent(+id)
+        .subscribe(event => this.event = event);
+    } else {
+      // TODO: navigate not found page
+    }
   }
 }
