@@ -34,7 +34,7 @@ export class ComicService {
   imageUrl(comic: Comic): string {
     if (0 < comic.images.length) {
       const { path, extension } = comic.images[0];
-      return `${path}.${extension}`;
+      return `${path}/portrait_uncanny.${extension}`;
     } else {
       return '';
     }
@@ -46,9 +46,25 @@ export class ComicService {
       .map(p => p.price);
 
     if (0 < printPrices.length) {
-      return printPrices[0];
+      const price = printPrices[0];
+      return price === 0 ? 'Free' : `$ ${price}`;
     } else {
       return '--';
     }
+  }
+
+  publishDate(comic: Comic): string {
+    const arr = comic.dates.filter(it => it.type == 'onsaleDate');
+    if (0 < arr.length) {
+      const dateString = arr[0].date;
+      return dateString;
+    } else {
+      return '--';
+    }
+  }
+
+  detailLink(comic: Comic): string {
+    const arr = comic.urls.filter(it => it.type == 'detail');
+    return arr.length ? arr[0].url : '';
   }
 }

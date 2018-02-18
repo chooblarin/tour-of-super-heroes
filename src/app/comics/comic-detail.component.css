@@ -1,0 +1,37 @@
+.summary {
+  display: flex;
+  margin-top: 24px;
+}
+
+.summary img {
+  min-width: 300px;
+  min-height: 450px;
+  margin-right: 24px;
+}
+
+.container-desc {
+  padding: 12px;
+}
+
+.published {
+  font-size: .8em;
+  margin-top: 12px;
+}
+
+.desc {
+  font-size: .9em;
+  margin-top: 24px;
+}
+
+.detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  list-style: none;
+}
+
+.detail > * {
+  min-width: 240px;
+  padding: 4px 12px;
+}
