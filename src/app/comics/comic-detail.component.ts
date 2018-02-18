@@ -10,7 +10,7 @@ import { ComicService } from './comic.service';
 })
 export class ComicDetailComponent implements OnInit {
 
-  comic: Comic;
+  comic: Comic | null = null;
 
   constructor(
     private route: ActivatedRoute,

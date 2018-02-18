@@ -17,8 +17,8 @@ export class EventsComponent implements OnInit {
 
   events: MarvelEvent[] = [];
   pageSize: number = 10;
-  currentPage: number;
-  totalPageCount: number;
+  currentPage: number | null = null;
+  totalPageCount: number | null = null;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,11 +44,15 @@ export class EventsComponent implements OnInit {
   }
 
   goToNextPage() {
-    this.goToPage(this.currentPage + 1);
+    if (this.currentPage != null) {
+      this.goToPage(this.currentPage + 1);
+    }
   }
 
   goToPrevPage() {
-    this.goToPage(this.currentPage - 1);
+    if (this.currentPage != null) {
+      this.goToPage(this.currentPage - 1);
+    }
   }
 
   private goToPage(page: number | string) {

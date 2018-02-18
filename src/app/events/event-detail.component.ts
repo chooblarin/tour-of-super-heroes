@@ -10,7 +10,7 @@ import { EventService } from './event.service';
 })
 export class EventDetailComponent implements OnInit {
 
-  event: MarvelEvent;
+  event: MarvelEvent | null = null;
 
   constructor(
     private route: ActivatedRoute,

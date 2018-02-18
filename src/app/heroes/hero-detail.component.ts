@@ -10,7 +10,7 @@ import { HeroService } from './hero.service';
 })
 export class HeroDetailComponent implements OnInit {
 
-  hero: Hero;
+  hero: Hero | null = null;
 
   constructor(
     private route: ActivatedRoute,

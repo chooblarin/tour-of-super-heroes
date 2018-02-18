@@ -1,13 +1,15 @@
 import { MarvelModel } from '../marvel/model';
 
 export class Comic implements MarvelModel {
-  id: number;
-  title: string;
-  description: string;
-  thumbnail: any;
-  isbn: string;
-  images: any[];
-  prices: any[];
-  dates: any[];
-  urls: any[];
+  constructor(
+    public id: number,
+    public title: string,
+    public description: string,
+    public thumbnail: any,
+    public isbn: string,
+    public images: any[],
+    public prices: any[],
+    public dates: any[],
+    public urls: any[]
+  ) { }
 }
