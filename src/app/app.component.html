@@ -1,13 +1,17 @@
 <div class="app">
-  <h1 class="logo">
-    Tour of Super Heroes
-  </h1>
 
-  <div class="nav-list">
-    <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-    <a routerLink="/comics" routerLinkActive="active">Comics</a>
-    <a routerLink="/events" routerLinkActive="active">Events</a>
-  </div>
+  <header>
+    <h1 class="logo">Tour of Super Heroes</h1>
+
+    <div class="nav-list">
+      <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+      <a routerLink="/comics" routerLinkActive="active">Comics</a>
+      <a routerLink="/events" routerLinkActive="active">Events</a>
+    </div>
+
+    <div class="links">
+    </div>
+  </header>
 
   <div class="tab-content">
     <router-outlet></router-outlet>
