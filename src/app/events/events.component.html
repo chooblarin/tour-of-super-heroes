@@ -1,18 +1,20 @@
 <section>
   <div *ngIf="currentPage" class="page-panel">
-    <button (click)="goToPrevPage()" [disabled]="currentPage <= 1">&lt; Prev</button>
-    <span>{{currentPage}}/{{totalPageCount}}</span>
+    <button (click)="goToPrevPage()" [disabled]="currentPage <= 1">
+      &lt; Prev
+    </button>
+    <span>{{ currentPage }}/{{ totalPageCount }}</span>
     <button (click)="goToNextPage()">Next &gt;</button>
   </div>
   <div class="event-list">
     <div *ngFor="let event of events" class="event-item">
-      <a routerLink="/events/{{event.id}}">
+      <a routerLink="/events/{{ event.id }}">
         <div class="content">
-          <h3>{{event.title}}</h3>
-          <p>{{event.description}}</p>
+          <h3>{{ event.title }}</h3>
+          <p>{{ event.description }}</p>
         </div>
         <div class="thumbnail">
-          <img [src]="eventService.thumbnailUrl(event)">
+          <img [src]="eventService.thumbnailUrl(event)" />
         </div>
       </a>
     </div>

@@ -3,9 +3,9 @@ export interface MarvelData<T> {
   count: number;
   offset: number;
   total: number;
-  results: T[]
+  results: T[];
 }
 
 export interface MarvelResponse<T> {
-  data: MarvelData<T>
+  data: MarvelData<T>;
 }

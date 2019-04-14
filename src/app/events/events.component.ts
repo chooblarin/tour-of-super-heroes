@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 
-import { MarvelEvent } from './event';
-import { EventService } from './event.service';
+import { MarvelEvent } from "./event";
+import { EventService } from "./event.service";
 
 @Component({
-  selector: 'app-events',
-  templateUrl: './events.component.html',
-  styleUrls: [
-    '../page-panel.css',
-    './events.component.css'
-  ]
+  selector: "app-events",
+  templateUrl: "./events.component.html",
+  styleUrls: ["../page-panel.css", "./events.component.css"]
 })
 export class EventsComponent implements OnInit {
-
   events: MarvelEvent[] = [];
   pageSize: number = 10;
   currentPage: number | null = null;
@@ -24,14 +20,13 @@ export class EventsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private eventService: EventService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.route
-      .queryParamMap
+    this.route.queryParamMap
       .pipe(
         switchMap(params => {
-          const page = +(params.get('page') || '1');
+          const page = +(params.get("page") || "1");
           const offset = (page - 1) * this.pageSize;
           return this.eventService.getEvents(this.pageSize, offset);
         })
@@ -56,6 +51,6 @@ export class EventsComponent implements OnInit {
   }
 
   private goToPage(page: number | string) {
-    this.router.navigate(['/events'], { queryParams: { page } });
+    this.router.navigate(["/events"], { queryParams: { page } });
   }
 }

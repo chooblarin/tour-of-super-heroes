@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 
-import { ComicService } from './comic.service';
-import { Comic } from './comic';
+import { ComicService } from "./comic.service";
+import { Comic } from "./comic";
 
 @Component({
-  selector: 'app-comics',
-  templateUrl: './comics.component.html',
-  styleUrls: [
-    '../page-panel.css',
-    './comics.component.css'
-  ]
+  selector: "app-comics",
+  templateUrl: "./comics.component.html",
+  styleUrls: ["../page-panel.css", "./comics.component.css"]
 })
 export class ComicsComponent implements OnInit {
-
   comics: Comic[] = [];
   pageSize: number = 10;
   currentPage: number | null = null;
@@ -24,14 +20,13 @@ export class ComicsComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private comicService: ComicService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.route
-      .queryParamMap
+    this.route.queryParamMap
       .pipe(
         switchMap(params => {
-          const page = +(params.get('page') || '1');
+          const page = +(params.get("page") || "1");
           const offset = (page - 1) * this.pageSize;
           return this.comicService.getComics(this.pageSize, offset);
         })
@@ -56,6 +51,6 @@ export class ComicsComponent implements OnInit {
   }
 
   private goToPage(page: number | string) {
-    this.router.navigate(['/comics'], { queryParams: { page } });
+    this.router.navigate(["/comics"], { queryParams: { page } });
   }
 }

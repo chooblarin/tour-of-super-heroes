@@ -1,4 +1,4 @@
-import { MarvelModel } from '../marvel/model';
+import { MarvelModel } from "../marvel/model";
 
 export class Comic implements MarvelModel {
   constructor(
@@ -11,5 +11,5 @@ export class Comic implements MarvelModel {
     public prices: any[],
     public dates: any[],
     public urls: any[]
-  ) { }
+  ) {}
 }

@@ -1,20 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, ParamMap, Router } from "@angular/router";
+import { switchMap } from "rxjs/operators";
 
-import { Hero } from './hero';
-import { HeroService } from './hero.service';
+import { Hero } from "./hero";
+import { HeroService } from "./hero.service";
 
 @Component({
-  selector: 'app-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: [
-    '../page-panel.css',
-    './heroes.component.css'
-  ]
+  selector: "app-heroes",
+  templateUrl: "./heroes.component.html",
+  styleUrls: ["../page-panel.css", "./heroes.component.css"]
 })
 export class HeroesComponent implements OnInit {
-
   heroes: Hero[] = [];
   pageSize: number = 20;
   currentPage: number | null = null;
@@ -24,14 +20,13 @@ export class HeroesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private heroService: HeroService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.route
-      .queryParamMap
+    this.route.queryParamMap
       .pipe(
         switchMap(params => {
-          const page = +(params.get('page') || '1');
+          const page = +(params.get("page") || "1");
           const offset = (page - 1) * this.pageSize;
           return this.heroService.getHeroes(this.pageSize, offset);
         })
@@ -56,6 +51,6 @@ export class HeroesComponent implements OnInit {
   }
 
   private goToPage(page: number | string) {
-    this.router.navigate(['/heroes'], { queryParams: { page } });
+    this.router.navigate(["/heroes"], { queryParams: { page } });
   }
 }

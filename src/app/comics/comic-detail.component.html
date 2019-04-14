@@ -1,21 +1,24 @@
 <div *ngIf="comic" class="comic">
-
   <div class="summary">
-    <a [href]="comicService.detailLink(comic)" target="_blank" rel="noopener noreferrer">
-      <img [src]="comicService.imageUrl(comic)">
+    <a
+      [href]="comicService.detailLink(comic)"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img [src]="comicService.imageUrl(comic)" />
     </a>
 
     <div class="container-desc">
-      <h1 class="title">{{comic.title}}</h1>
-      <div class="published">Published: {{comicService.publishDate(comic)}}</div>
-      <p class="desc">{{comic.description}}</p>
+      <h1 class="title">{{ comic.title }}</h1>
+      <div class="published">
+        Published: {{ comicService.publishDate(comic) }}
+      </div>
+      <p class="desc">{{ comic.description }}</p>
     </div>
   </div>
 
   <ul class="detail">
-    <li>
-      <strong>ISBN: </strong>{{comic.isbn || '--'}}</li>
-    <li>
-      <strong>Price: </strong>{{comicService.printPrice(comic)}}</li>
+    <li><strong>ISBN: </strong>{{ comic.isbn || "--" }}</li>
+    <li><strong>Price: </strong>{{ comicService.printPrice(comic) }}</li>
   </ul>
 </div>

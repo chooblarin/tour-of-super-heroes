@@ -1,16 +1,25 @@
 <div *ngIf="hero" class="bio">
-
   <div class="bio-image">
-    <img [src]="heroService.imageUrl(hero)">
+    <img [src]="heroService.imageUrl(hero)" />
   </div>
 
   <div class="bio-content">
-    <h1 class="bio-name">{{hero.name}}</h1>
-    <p class="bio-desc">{{hero.description}}</p>
+    <h1 class="bio-name">{{ hero.name }}</h1>
+    <p class="bio-desc">{{ hero.description }}</p>
   </div>
 
   <div class="links">
-    <a [href]="heroService.detailLink(hero)" target="_blank" rel="noopener noreferrer">More detail</a>
-    <a [href]="heroService.wikiLink(hero)" target="_blank" rel="noopener noreferrer">Wiki</a>
+    <a
+      [href]="heroService.detailLink(hero)"
+      target="_blank"
+      rel="noopener noreferrer"
+      >More detail</a
+    >
+    <a
+      [href]="heroService.wikiLink(hero)"
+      target="_blank"
+      rel="noopener noreferrer"
+      >Wiki</a
+    >
   </div>
 </div>

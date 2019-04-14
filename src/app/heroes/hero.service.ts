@@ -1,31 +1,29 @@
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
-import { Hero } from './hero';
-import { MarvelData } from '../marvel/response';
-import { MarvelService } from '../marvel/marvel.service';
-import * as helper from '../marvel/helper';
+import { Hero } from "./hero";
+import { MarvelData } from "../marvel/response";
+import { MarvelService } from "../marvel/marvel.service";
+import * as helper from "../marvel/helper";
 
 @Injectable()
 export class HeroService {
+  constructor(private marvelService: MarvelService) {}
 
-  constructor(private marvelService: MarvelService) { }
-
-  getHeroes(limit: number = 20, offset: number = 0): Observable<MarvelData<Hero>> {
+  getHeroes(
+    limit: number = 20,
+    offset: number = 0
+  ): Observable<MarvelData<Hero>> {
     return this.marvelService
       .getHeroes(limit, offset)
-      .pipe(
-        map(response => response.data)
-      );
+      .pipe(map(response => response.data));
   }
 
   getHero(id: number): Observable<Hero> {
     return this.marvelService
       .getHero(id)
-      .pipe(
-        map(response => response.data.results[0])
-      );
+      .pipe(map(response => response.data.results[0]));
   }
 
   thumbnailUrl(hero: Hero): string {

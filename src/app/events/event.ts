@@ -1,4 +1,4 @@
-import { MarvelModel } from '../marvel/model';
+import { MarvelModel } from "../marvel/model";
 
 export class MarvelEvent implements MarvelModel {
   constructor(
@@ -9,5 +9,5 @@ export class MarvelEvent implements MarvelModel {
     public end: string,
     public thumbnail: any,
     public urls: any[]
-  ) { }
+  ) {}
 }

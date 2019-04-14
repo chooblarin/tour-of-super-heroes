@@ -1,14 +1,16 @@
 <section>
   <div *ngIf="currentPage" class="page-panel">
-    <button (click)="goToPrevPage()" [disabled]="currentPage <= 1">&lt; Prev</button>
-    <span>{{currentPage}}/{{totalPageCount}}</span>
+    <button (click)="goToPrevPage()" [disabled]="currentPage <= 1">
+      &lt; Prev
+    </button>
+    <span>{{ currentPage }}/{{ totalPageCount }}</span>
     <button (click)="goToNextPage()">Next &gt;</button>
   </div>
   <div class="hero-list">
     <div *ngFor="let hero of heroes" class="hero-item">
-      <a routerLink="/heroes/{{hero.id}}">
-        <img [src]="heroService.thumbnailUrl(hero)" alt="">
-        <h4>{{hero.name}}</h4>
+      <a routerLink="/heroes/{{ hero.id }}">
+        <img [src]="heroService.thumbnailUrl(hero)" alt="" />
+        <h4>{{ hero.name }}</h4>
       </a>
     </div>
   </div>
