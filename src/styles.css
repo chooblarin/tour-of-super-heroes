@@ -5,26 +5,26 @@
 }
 
 body {
-  font-family: 'serif', sans-serif;
+  font-family: "serif", sans-serif;
   height: 100vh;
-  color: #fefefe;
-  background: linear-gradient(#061C27, #04413F);
+  color: #525252;
+  background: #f8f8f8;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
 a {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	vertical-align: baseline;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
   background: transparent;
   text-decoration: none;
   color: inherit;
 }
 
-button{
+button {
   background-color: transparent;
   border: none;
   cursor: pointer;

@@ -1,5 +1,5 @@
 .comic-item {
-  border-top: 1px solid #62f1d2;
+  border-top: 1px solid #f20b70;
   min-height: 240px;
 }
 
@@ -9,7 +9,7 @@
 }
 
 .comic-item a:hover {
-  background-color: #62f1d214;
+  background-color: #f20b7014;
 }
 
 .comic-item img {
@@ -28,6 +28,5 @@
 
 .comic-content p {
   font-size: 0.8rem;
-  color: white;
   line-height: 1.6;
 }

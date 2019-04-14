@@ -1,5 +1,5 @@
 .event-item {
-  border-top: 1px solid #62f1d2;
+  border-top: 1px solid #f20b70;
   min-height: 292px;
 }
 
@@ -10,7 +10,7 @@
 }
 
 .event-item a:hover {
-  background-color: #62f1d214;
+  background-color: #f20b7014;
 }
 
 .thumbnail {
@@ -37,8 +37,4 @@
 
 .content h3 {
   margin-bottom: 12px;
-}
-
-.content p {
-  color: white;
 }

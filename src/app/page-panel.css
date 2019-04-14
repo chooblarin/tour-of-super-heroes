@@ -6,7 +6,7 @@
 .page-panel button {
   font-size: 1em;
   padding: 0 12px;
-  color: #52E7BF;
+  color: #e391b3;
 }
 
 .page-panel button:hover {
@@ -14,7 +14,7 @@
 }
 
 .page-panel button:disabled {
-  color: #52E7BF55;
+  color: #e391b355;
   text-decoration: none;
   cursor: none;
 }

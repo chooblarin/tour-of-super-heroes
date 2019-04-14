@@ -20,7 +20,7 @@
 }
 
 .hero-item:hover img {
-  border: solid 1px darkcyan;
+  border: solid 1px #ff99ff;
 }
 
 .hero-item h4 {
